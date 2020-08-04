@@ -168,3 +168,12 @@ CORS_ALLOW_HEADERS = (
  'x-csrftoken',
  'x-requested-with',
 )
+
+# 排序规则
+ORDER_RULE_LIST = [
+    {'order_name': '综合排序', 'order_value': 0},
+    {'order_name': '价格升序', 'order_value': 1},
+    {'order_name': '价格降序', 'order_value': 2},
+    {'order_name': '销量升序', 'order_value': 3},
+    {'order_name': '销量降序', 'order_value': 4},
+]
