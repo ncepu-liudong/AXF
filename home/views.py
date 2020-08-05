@@ -33,9 +33,9 @@ class HomeListView(GenericAPIView):
             'data': {
                 'main_wheels': wheel_data.data,
                 'main_navs': nav_data.data,
-                'main_shop': shop_data.data,
-                'main_mainshow': mainshow_data.data,
-                'main_mustbuy': mustbuy_data.data
+                'main_shops': shop_data.data,
+                'main_shows': mainshow_data.data,
+                'main_mustbuys': mustbuy_data.data
             }
         })
 
