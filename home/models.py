@@ -137,7 +137,7 @@ class AxfUser(models.Model):
     u_username = models.CharField(unique=True, max_length=32)
     u_password = models.CharField(max_length=256)
     u_email = models.CharField(unique=True, max_length=64)
-    is_active = models.IntegerField()
+    is_active = models.IntegerField(default=1)
     is_delete = models.IntegerField()
 
     class Meta:
