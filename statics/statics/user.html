@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>user</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+<body>
+
+<!-- 你的HTML代码 -->
+<form class="layui-form" action="">
+    <div> 登陆成功！！</div>
+    <div>
+        <label class="layui-form-label">用户名: </label>
+        <div id="name" class="layui-form-mid layui-word-aux">  </div>
+    </div>
+    <div>
+        <label class="layui-form-label">token: </label>
+        <div id="token" class="layui-form-mid layui-word-aux">  </div>
+    </div>
+    <div>
+        <label class="layui-form-label">email: </label>
+        <div id="email" class="layui-form-mid layui-word-aux">  </div>
+    </div>
+</form>
+
+<script src="../layui/layui.js"></script>
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+});
+//取得token，通过接口获取到用户名，email
+$(function () {
+    //获取传过来的token
+    var test =window.location.href;
+    var token = test.split("?token=")[1];
+    //get方法调接口得到数据
+   $.get('http://127.0.0.1:8000/api/user/auth/?token='+ token ,
+        function (data, status) {
+       //接口返回的数据，改变页面上的值，展示
+            $("#name").text(data.data.user_info.u_username);
+            $("#token").text(token);
+            $("#email").text(data.data.user_info.u_email);
+        });
+});
+</script>
+</body>
+</html>
